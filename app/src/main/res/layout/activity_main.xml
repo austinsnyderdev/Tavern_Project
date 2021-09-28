@@ -13,7 +13,7 @@
     >
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/usernameLayout"
+        android:id="@+id/emailLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintToptoTopOf="parent"
@@ -21,13 +21,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:padding="16dp"
-        app:helperText="Username"
+        app:helperText="Email"
         >
         <TextView
-            android:id="@+id/usernameText"
+            android:id="@+id/emailText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Username"
+            android:hint="Email"
             />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -35,8 +35,8 @@
         android:id="@+id/passwordLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/usernameLayout"
-        app:layout_constraintBottomtoTopOf="@id/emailLayout"
+        app:layout_constraintTop_toBottomOf="@id/emailLayout"
+        app:layout_constraintBottomtoTopOf="@id/displayNameLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:padding="16dp"
@@ -46,12 +46,12 @@
             android:id="@+id/passwordText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Username"
+            android:hint="Password"
             />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/emailLayout"
+        android:id="@+id/displayNameLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/passwordLayout"
@@ -59,14 +59,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:padding="16dp"
-        app:helperText="Email"
+        app:helperText="Display Name"
         >
 
         <TextView
-        android:id="@+id/emailText"
+        android:id="@+id/displayNameText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Email"
+        android:hint="Display name"
         />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -74,12 +74,13 @@
         android:id="@+id/accountInformationCompleteButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/emailLayout"
+        app:layout_constraintTop_toBottomOf="@id/displayNameLayout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:text="Register"
         android:backgroundTint="#4D243D"
+        android:onClick="accountInformationComplete"
 
     />
     </androidx.constraintlayout.widget.ConstraintLayout>
