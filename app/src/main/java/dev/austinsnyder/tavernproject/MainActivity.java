@@ -2,7 +2,6 @@ package dev.austinsnyder.tavernproject;
 
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -30,24 +29,27 @@ public class MainActivity extends AppCompatActivity {
         EditText passwordEditText = findViewById(R.id.passwordInput);
         EditText displayNameEditText = findViewById(R.id.displayNameInput);
 
-        checkAndSetEditTextError(emailEditText);
-        checkAndSetEditTextError(passwordEditText);
-        checkAndSetEditTextError(displayNameEditText);
+        checkAndSetEditTextError(emailEditText, true);
+        checkAndSetEditTextError(passwordEditText, false);
+        checkAndSetEditTextError(displayNameEditText, false);
 
         String emailText = emailEditText.getText().toString();
         String passwordText = passwordEditText.getText().toString();
         String displayNameText = displayNameEditText.getText().toString();
 
-        Log.i("CompletedLog", emailText);
+
     }
+
     //Sets empty field error indicator at the end of necessary EditText boxes
-    public void checkAndSetEditTextError(EditText editText) {
+    public void checkAndSetEditTextError(EditText editText, boolean userInputIsEmail) {
         String editTextString = editText.getText().toString();
         if (TextUtils.isEmpty(editTextString)) {
             editText.setError("This item cannot be empty.");
         }
-        else if (!isValidEmail(editTextString)) {
-            editText.setError("Please enter a valid email address.");
+        else if (userInputIsEmail) {
+            if (!isValidEmail(editTextString)) {
+                editText.setError("Please enter a valid email address.");
+            }
         }
     }
 
